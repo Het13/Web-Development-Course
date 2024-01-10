@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container fs-5">
+    <form action="/edit/<%=blog.id%>" method="post">
+        <div class="col-4 mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" name="title" id="title" value="<%=blog.title%>">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="author" class="form-label">Author</label>
+            <input type="text" class="form-control" name="author" id="author" value="<%=blog.author%>">
+        </div>
+        <div class="col mb-3">
+            <label for="content" class="form-label">Content</label>
+            <textarea class="form-control" name="content" id="content" rows="10"
+                      value=""><%=blog.content%></textarea>
+        </div>
+        <button type="submit" class="btn btn-success btn-lg px-4 me-md-2">Submit</button>
+
+    </form>
+</div>
+<script>
+    $("#header-blogs").addClass("active")
+    $("#header-home").removeClass("active")
+    $("#header-create").removeClass("active")
+</script>
+
+
+<%- include('partials/footer.ejs') %>

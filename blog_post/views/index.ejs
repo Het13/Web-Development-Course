@@ -1,0 +1,31 @@
+<%- include('partials/header.ejs') %>
+
+
+<div class="cover">
+    <div class="container col-xxl-8 px-4 pt-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="/images/cover.png" class="d-block mx-lg-auto img-fluid" alt="Cover Image" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">BLOGS</h1>
+                <p class="lead">Explore stories and views of authors from all over the world.</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <form method="get" action="/blogs">
+                        <button type="submit" class="btn btn-outline-primary btn-lg px-4 me-md-2">Start Reading</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#header-home").addClass("active")
+    $("#header-blogs").removeClass("active")
+    $("#header-create").removeClass("active")
+</script>
+
+
+
+<%- include('partials/footer.ejs') %>

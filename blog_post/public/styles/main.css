@@ -1,0 +1,52 @@
+header{
+    background-color: #c9c9f9;
+}
+footer{
+    background-color: #c9c9f9;
+}
+
+.main > header > .nav-pills > li > .active {
+    color: white;
+    background-color: #6a5acd;
+    border: 1px solid #6a5acd;
+}
+
+.main > header > .nav-pills > li > .active:hover {
+    background-color: #c9c9f9;
+    color: #6a5acd;
+    border: 1px solid #6a5acd;
+}
+
+.main > header > .nav-pills > li > a {
+    color: black;
+    border: 1px solid #c9c9f9;
+}
+
+.main > header > .nav-pills > li > a:hover {
+    background-color: #6a5acd;
+    border: 1px solid #6a5acd;
+    color: white;
+
+}
+
+.main{
+    background-color: #e6e6fa;
+}
+
+.list-group-item{
+    background-color: #e6e6fa;
+    color: black;
+    border: 1px solid black;
+
+}
+
+#title-list a{
+    text-decoration: none;
+    color: black;
+}
+
+@media screen and (min-width: 1000px) {
+    #title-list {
+        padding: 0 200px;
+    }
+}
