@@ -1,0 +1,29 @@
+#cover{
+    background-image: url("../images/mountains.png");
+    background-repeat:no-repeat;
+    background-size:contain;
+    height: 971px;
+    width: 1519px;
+}
+
+.title{
+    color: white;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    top: 30%;
+    left:43%;
+}
+
+.profile{
+    padding: 30px;
+    margin:auto;
+    width:25%;
+    text-align: center;
+}
+.profile>h3{
+    padding:10px;
+}
+.profile>img{
+    border-radius: 50%;
+}
