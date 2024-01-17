@@ -1,0 +1,41 @@
+<%- include('partials/header.ejs') %>
+<div class="container">
+    <div class="book">
+        <div class="img"><img alt="Cover Image" src="<%= book.img %>"/></div>
+        <div class="row gy-3">
+            <div class="title fs-1 fw-bold text-uppercase"><%= book.title %></div>
+            <div class="author fs-2 fst-italic">-By <%= book.author %></div>
+            <div class="row gy-1">
+                <div class="isbn fs-5">ISBN Number: <%= book.isbn %></div>
+                <div class="fs-5">Read On: <%= book.date.toISOString().split('T')[0] %></div>
+                <div class="fs-5">Rating: <%= book.rating %>/10</div>
+            </div>
+        </div>
+        <div class="summary fs-5" style="clear: both"><%= book.summary %></div>
+    </div>
+    <br>
+    <hr>
+    <div class="notes">
+        <div class="fs-3">Notes</div>
+        <% for (let note of notes){ %>
+            <ul>
+                <li class="fs-5"><%= note.note %></li>
+            </ul>
+        <% } %>
+    </div>
+    <form method="post" action="/books/<%= book.id %>/notes">
+        <textarea id="input" name="newNote" hidden="true" rows="5" cols="150"></textarea>
+        <br>
+        <button id="done" class="btn btn-success" hidden="true">Done</button>
+    </form>
+    <button id="add" onclick="handler()" class="btn btn-success">Add</button>
+    <hr>
+</div>
+<script>
+    function handler() {
+        document.getElementById('add').setAttribute("hidden", true)
+        document.getElementById('done').removeAttribute("hidden")
+        document.getElementById('input').removeAttribute("hidden")
+    }
+</script>
+<%- include('partials/footer.ejs') %>

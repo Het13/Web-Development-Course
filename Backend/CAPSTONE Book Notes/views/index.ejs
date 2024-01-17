@@ -1,0 +1,52 @@
+<%- include('partials/header.ejs') -%>
+
+<div class="p-5 text-center bg-body-tertiary rounded-3">
+    <p class="text-body-emphasis fs-1 fw-bold">My Books</p>
+    <p class="text-body-emphasis fs-3">-Het Patel</p>
+    <p class="col-lg-8 mx-auto fs-5">
+        This is a list of books I've read, it includes my rating and also some of my notes about the book.
+    </p>
+    <p class="col-lg-8 mx-auto fs-5 ">
+        Sort them according to <a href="/sort/title">Title</a>, <a href="/sort/date">Newest</a>, <a href="/sort/rating">Rating</a>.
+    </p>
+    <form method="get" action="/add">
+        <button class="btn btn-success">Add Book</button>
+    </form>
+</div>
+
+<div class="container">
+    <% for(let book of books){ %>
+        <div class="book">
+            <div class="img"><img alt="Cover Image" src="<%= book.img %>"/></div>
+            <div class="title fs-1 fw-bold text-uppercase"><%= book.title %></div>
+            <div class="author fs-2 fst-italic">-By <%= book.author %></div>
+            <div class="row ">
+                <div class="col fs-4">Read On: <%= book.date.toISOString().split('T')[0] %></div>
+                <div class="col fs-4">
+                    <form style="display: inline" method="post" action="/rating/<%= book.id %> ">
+                        Rating: <span id="ratingValue<%= book.id %>"><%= book.rating %></span>
+                        <input id="input<%= book.id %>" name="newRating" type="number" value="1" min="1" max="10" step="0.1" hidden="true">/10
+                        <button class="btn btn-success fs-5" id="done<%= book.id %>" hidden="true">Done</button>
+                    </form>
+                    <button class="btn btn-dark fs-5 fst-italic" id="edit<%= book.id %>" onclick="handler(<%= book.id %>)">Edit</button>
+                </div>
+            </div>
+            <div class="summary fs-5"><%= book.summary %></div>
+
+        </div>
+        <a class="fs-5" href="/notes/<%= book.id %>">Read Notes</a>
+        <br>
+        <hr>
+    <% } %>
+</div>
+<script>
+    function handler(id) {
+        document.getElementById("done" + id).removeAttribute("hidden")
+        document.getElementById("edit" + id).setAttribute("hidden", true)
+        document.getElementById("ratingValue" + id).setAttribute("hidden", true)
+        document.getElementById("input" + id).removeAttribute("hidden")
+    }
+
+
+</script>
+<%- include('partials/footer.ejs') -%>

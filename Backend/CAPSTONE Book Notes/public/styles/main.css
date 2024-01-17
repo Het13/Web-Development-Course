@@ -1,0 +1,24 @@
+a{
+    text-decoration: none;
+    font-style: italic;
+}
+.img{
+    float:left;
+    padding: 1rem;
+}
+.book{
+    display: inline-block;
+}
+footer{
+    text-align: center;
+}
+.summary{
+    padding-top: 1rem;
+}
+.author{
+    padding-bottom: 1rem;
+}
+
+.book input{
+    width:5rem
+}
