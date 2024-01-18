@@ -1,13 +1,14 @@
-import express, {query} from "express";
+import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
+import 'dotenv/config'
 
 const db = new pg.Client({
-    user: 'postgres',
-    host: 'localhost',
-    password: 'Het@2102',
-    database: 'world',
-    port: 5432
+    user: process.env.PG_USER,
+    host: process.env.PG_HOST,
+    password: process.env.PG_PASSWORD,
+    database: process.env.PG_DATABASE,
+    port: process.env.PG_PORT
 })
 db.connect()
 
@@ -32,10 +33,10 @@ async function checkVisisted() {
 app.get("/", async (req, res) => {
     //Write your code here.
     const countries = await checkVisisted();
-    res.render("index.ejs", { countries: countries, total: countries.length });
+    res.render("index.ejs", {countries: countries, total: countries.length});
 });
 
-app.post('/add', async (req,res)=>{
+app.post('/add', async (req, res) => {
     const input = req.body["country"];
 
     try {
